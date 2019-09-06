@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.osgi.bridge</groupId>
+	<artifactId>brige_container</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>brige_container Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.eclipse.equinox/servletbridge -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.eclipse.equinox</groupId> -->
+		<!-- <artifactId>servletbridge</artifactId> -->
+		<!-- <version>1.0.0-v20070523</version> -->
+		<!-- <scope>system</scope> -->
+		<!-- <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/servletbridge.jar</systemPath> -->
+		<!-- </dependency> -->
+	
+		<dependency>
+			<groupId>org.crossbridge</groupId>
+			<artifactId>class_launcher</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 		<groupId>org.crossbridge</groupId> -->
+<!-- 		<artifactId>own.bridge</artifactId> -->
+<!-- 		<version>0.0.1-SNAPSHOT</version> -->
+<!-- 		<exclusions> -->
+<!-- 				<exclusion> -->
+<!-- 					<groupId>org.eclipse.platform</groupId> -->
+<!-- 					<artifactId>org.eclipse.equinox.servletbridge</artifactId> -->
+<!-- 				</exclusion> -->
+<!-- 				<exclusion> -->
+<!-- 				  <groupId>org.eclipse.platform</groupId> -->
+<!-- 				  <artifactId>org.eclipse.osgi</artifactId> -->
+<!-- 				</exclusion> -->
+<!-- 			</exclusions> -->
+<!-- 		</dependency> -->
+
+	</dependencies>
+
+
+	<build>
+		<finalName>brige_container</finalName>
+	</build>
+</project>
