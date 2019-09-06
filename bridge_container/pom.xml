@@ -37,6 +37,12 @@
 			<artifactId>class_launcher</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.crossbridge</groupId> -->
+<!-- 			<artifactId>own.bridge.upgrade</artifactId> -->
+<!-- 			<version>0.0.1-SNAPSHOT</version> -->
+<!-- 		</dependency> -->
 
 <!-- 		<dependency> -->
 <!-- 		<groupId>org.crossbridge</groupId> -->

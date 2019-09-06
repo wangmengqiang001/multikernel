@@ -25,6 +25,39 @@ public class UapModuleContextListener implements ServletContextListener {
 		event.getServletContext().log("\nservInfo:" + srinfo);
 		event.getServletContext().log("\nlauncher:" + launcher);
 	}
+	
+	private boolean deleteDirectory(File directory) {
+		boolean bDel=false;
+		//if(directory.exists()) {
+			if (directory.isDirectory()) {
+				File[] files = directory.listFiles();
+				if(files.length <=0) {
+					bDel = directory.delete();
+					System.out.println("del file:" + bDel +"  "+directory.getPath());
+				}else {
+					for (int i = 0; i < files.length; i++) {
+	
+						bDel =deleteDirectory(files[i]);
+	
+	
+						//boolean rt= files[i].delete();
+						System.out.println("del file:" + bDel +"  "+files[i].getPath());
+					}
+					if(directory.list().length == 0) {
+						bDel = directory.delete();
+						System.out.println("del file:" + bDel +"  "+directory.getPath());
+					}
+				}
+			}else {
+				bDel = directory.delete();
+				System.out.println("del file:" + bDel +"  "+directory.getPath());
+			}
+//		}else {
+//			System.out.println("file cannot be accessed:" + "  "+directory.getPath());
+//		}
+
+		return bDel;
+	}
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
@@ -42,14 +75,14 @@ public class UapModuleContextListener implements ServletContextListener {
 		
 		String userPath = System.getProperty("user.dir");
 		ctx.log("user.dir:" + userPath);
-		String basePath = ctx.getRealPath("/WEB-INF/launchers")+File.separator;
-		ctx.log("basePath:" + basePath);
+		String basePath = ctx.getRealPath("/");
+		//String basePath = ctx.getRealPath("/");//
+		ctx.log("basePath:" + basePath); 
 		
-		
-		
+		//clearOsgiFolder(ctx);	
 		
 	
-		UapOsgiLaunchers clsProviders = new UapOsgiLaunchers(basePath);
+		UapOsgiLaunchers clsProviders = new UapOsgiLaunchers(basePath+"WEB-INF"+File.separator+"launchers"+File.separator);
 		ClassLauncher launchCls = new ClassLauncher(null,clsProviders);
 		
 		try {
@@ -58,11 +91,19 @@ public class UapModuleContextListener implements ServletContextListener {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}	
 	
 		
 		
+	}
+
+	private void clearOsgiFolder(ServletContext ctx) {
+		File servletTemp = (File) ctx
+				.getAttribute("javax.servlet.context.tempdir");
+		
+		ctx.log("servletTemp:" + servletTemp.getPath());
+		
+		this.deleteDirectory(new File(servletTemp.getPath()+File.separator+"eclipse"));
 	}
 
 }
