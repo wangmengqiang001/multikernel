@@ -7,7 +7,7 @@
 
 	<context-param>
 		<param-name>launcher_version</param-name>
-		<param-value>1.0.0</param-value>
+		<param-value>2.0.0</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.crossbridge.web.osgi.UapModuleContextListener</listener-class>

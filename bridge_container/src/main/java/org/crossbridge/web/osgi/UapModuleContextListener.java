@@ -64,7 +64,7 @@ public class UapModuleContextListener implements ServletContextListener {
 		// TODO Auto-generated method stub
 		ServletContext ctx=event.getServletContext();
 		
-			
+		
 		ctx.log("应用系统开始启动...");
 		String srinfo = ctx.getServletContextName();
 		
@@ -79,7 +79,7 @@ public class UapModuleContextListener implements ServletContextListener {
 		//String basePath = ctx.getRealPath("/");//
 		ctx.log("basePath:" + basePath); 
 		
-		//clearOsgiFolder(ctx);	
+		clearOsgiFolder(ctx);	
 		
 	
 		UapOsgiLaunchers clsProviders = new UapOsgiLaunchers(basePath+"WEB-INF"+File.separator+"launchers"+File.separator);
