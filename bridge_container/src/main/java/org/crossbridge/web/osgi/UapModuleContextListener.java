@@ -1,12 +1,15 @@
 package org.crossbridge.web.osgi;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import org.crossbridge.loadedjar.ClassLauncher;
+
+import com.ziputil.ZipUtils;
 
 public class UapModuleContextListener implements ServletContextListener {
 
@@ -81,6 +84,11 @@ public class UapModuleContextListener implements ServletContextListener {
 		
 		clearOsgiFolder(ctx);	
 		
+		//deploy(get and extract) engine
+		deployEngine(basePath+"WEB-INF"+File.separator,launcher);
+		//+"engine"+File.separator
+		
+		
 	
 		UapOsgiLaunchers clsProviders = new UapOsgiLaunchers(basePath+"WEB-INF"+File.separator+"eclipse"+File.separator+"launchers"+File.separator);
 		ClassLauncher launchCls = new ClassLauncher(null,clsProviders);
@@ -94,6 +102,27 @@ public class UapModuleContextListener implements ServletContextListener {
 		}	
 	
 		
+		
+	}
+
+	private void deployEngine(String basePath, String launcherVersion) {
+		// TODO Auto-generated method stub
+		
+		String targetPath = basePath +"eclipse";
+		
+		File targetFile = new File(targetPath);
+		if(targetFile.exists()){
+			this.deleteDirectory(targetFile);
+		}
+		File engine = new File(basePath+"engine"+File.separator+"osgi-engine-3.5.1-1.0.0.zip");
+		File eclipse=new File(basePath);
+		
+		try {
+			ZipUtils.unzip(engine, eclipse);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
