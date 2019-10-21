@@ -82,7 +82,7 @@ public class UapModuleContextListener implements ServletContextListener {
 		clearOsgiFolder(ctx);	
 		
 	
-		UapOsgiLaunchers clsProviders = new UapOsgiLaunchers(basePath+"WEB-INF"+File.separator+"launchers"+File.separator);
+		UapOsgiLaunchers clsProviders = new UapOsgiLaunchers(basePath+"WEB-INF"+File.separator+"eclipse"+File.separator+"launchers"+File.separator);
 		ClassLauncher launchCls = new ClassLauncher(null,clsProviders);
 		
 		try {
