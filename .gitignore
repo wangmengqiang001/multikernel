@@ -5,3 +5,4 @@ RemoteSystemsTempFiles/
 Servers/
 .settings/
 target/
+bridge_container/src/main/webapp/WEB-INF/engine/*.zip

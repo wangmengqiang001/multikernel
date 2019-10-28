@@ -11,7 +11,7 @@ public class UapOsgiLaunchers implements IClassProvider {
 		this.basePath = basePath;
 	}
 	String[][] launcherCls= {{"servletbridge.jar","crossbridge-1.0.0.0-SNAPSHOT.jar","own.bridge-0.0.1-SNAPSHOT.jar"},
-			{"org.eclipse.equinox.servletbridge-1.3.200.jar","crossbridge-1.0.0.0-SNAPSHOT.jar","own.bridge.upgrade-0.0.1-SNAPSHOT_20190906151329.jar"}};
+			{"org.eclipse.equinox.servletbridge-1.3.200.jar","crossbridge-1.0.0.0-SNAPSHOT.jar","own.bridge.upgrade-0.0.1-SNAPSHOT.jar"}};
 
 	String basePath;
 	@Override

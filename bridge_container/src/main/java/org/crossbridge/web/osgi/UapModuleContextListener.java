@@ -114,7 +114,11 @@ public class UapModuleContextListener implements ServletContextListener {
 		if(targetFile.exists()){
 			this.deleteDirectory(targetFile);
 		}
-		File engine = new File(basePath+"engine"+File.separator+"osgi-engine-3.5.1-1.0.0.zip");
+		String osgiEngine;
+		osgiEngine = locateEngine(basePath,launcherVersion);
+		//File engine = new File(basePath+"engine"+File.separator+"osgi-engine-3.5.1-1.0.0.zip");
+		//File engine = new File(basePath+"engine"+File.separator+"osgi-engine-3.12.100-1.0.0-SNAPSHOT.zip");
+		File engine= new  File(osgiEngine);
 		File eclipse=new File(basePath);
 		
 		try {
@@ -123,6 +127,17 @@ public class UapModuleContextListener implements ServletContextListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}
+
+	private String locateEngine(String basePath,String launcherVersion) {
+		if("1.0.0".equals(launcherVersion)) {
+		   return (basePath+"engine"+File.separator+"osgi-engine-3.5.1-1.0.0.zip");
+		}
+		else{
+			return (basePath+"engine"+File.separator+"osgi-engine-3.12.100-1.0.0-SNAPSHOT.zip");
+		}
+			
 		
 	}
 
