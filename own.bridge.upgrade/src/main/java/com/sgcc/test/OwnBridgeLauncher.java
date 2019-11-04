@@ -10,8 +10,8 @@ public class OwnBridgeLauncher extends CrossBridgeLauncher {
 	@Override
 	protected void initResourceBase() {
 		// TODO Auto-generated method stub
-		//super.initResourceBase();
-		this.resourceBase = "/WEB-INF/repository/"; 
+		super.initResourceBase(); //to turn on the next line if the basepath is own defined
+		//this.resourceBase = "/WEB-INF/repository/"; 
 	}
 
 	@Override
