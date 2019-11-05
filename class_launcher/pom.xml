@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.crossbridge</groupId>
 	<artifactId>class_launcher</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>classLauncher</name>
 	<description>study method to load class </description>
 	<dependencies>
